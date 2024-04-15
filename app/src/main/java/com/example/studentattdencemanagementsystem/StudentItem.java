@@ -5,7 +5,7 @@ public class StudentItem {
     private String name;
     private String status;
 
-    public StudentItem(String roll, String name, String status) {
+    public StudentItem(String roll, String name) {
         this.roll = roll;
         this.name = name;
         status="";

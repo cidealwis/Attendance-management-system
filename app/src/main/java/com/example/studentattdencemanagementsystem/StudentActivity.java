@@ -87,6 +87,6 @@ public class StudentActivity extends AppCompatActivity {
 
     private void addStudent(String roll, String name) {
         studentItems.add(new StudentItem(roll,name));//methana awlak teenawa parameeters 3k ena nisa issarahata balamu
-        adapter.notifyItemChanged(studentItems.size()-1);
+        adapter.notifyDataSetChanged();
     }
 }

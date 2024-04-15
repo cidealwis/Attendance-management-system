@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#EDE9E9">
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp"
+    android:background="#EDE9E9"
+    app:cardBackgroundColor="#CFFBCF"
+    >
 
     <LinearLayout
         android:padding="16dp"
@@ -51,21 +55,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
-        <Button
-            android:id="@+id/cancel_btn"
-            android:layout_marginLeft="8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CANCEL"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/add_btn"
-            android:layout_alignParentRight="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ADD"
-            android:layout_marginRight="8dp"/>
+            <Button
+                android:layout_weight="0.33"
+                android:id="@+id/cancel_btn"
+                android:layout_marginLeft="8dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#127A21"
+                android:text="CANCEL"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.33"/>
+
+            <Button
+                android:layout_weight="0.33"
+                android:id="@+id/add_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="ADD"
+                android:backgroundTint="#127A21"
+                android:layout_marginRight="8dp"/>
+
+        </LinearLayout>
+
 
         </RelativeLayout>
     </LinearLayout>
-</LinearLayout>
+</androidx.cardview.widget.CardView>
