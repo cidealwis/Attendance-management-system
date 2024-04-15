@@ -1,8 +1,8 @@
 package com.example.studentattdencemanagementsystem;
 
 public class ClassItem {
-    String className;
-    String subjectName;
+   private String className;
+    private String subjectName;
 
     public String getClassName() {
         return className;
