@@ -8,4 +8,8 @@
     <item
         android:id="@+id/show_Calendar"
         android:title="CHANGE DATE"/>
+
+    <item
+        android:id="@+id/show_attendance_sheet"
+        android:title="ATTENDANCE SHEET"/>
 </menu>

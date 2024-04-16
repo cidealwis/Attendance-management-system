@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DbHelper extends SQLiteOpenHelper {
-    private static final int VERSION = 1;
+    private static final int VERSION = 2;
 
     // Class table
     private static final String CLASS_TABLE_NAME = "CLASS_TABLE";
@@ -57,10 +57,12 @@ public class DbHelper extends SQLiteOpenHelper {
             "CREATE TABLE " + STATUS_TABLE_NAME + "(" +
                     STATUS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
                     S_ID + " INTEGER NOT NULL," +
+                    C_ID + " INTEGER NOT NULL," +
                     DATE_KEY + " DATE NOT NULL," +
                     STATUS_KEY + " TEXT NOT NULL," +
                     " UNIQUE (" + S_ID + "," + DATE_KEY + ")," +
-                    " FOREIGN KEY(" + S_ID + ") REFERENCES " + STUDENT_TABLE_NAME + "(" + S_ID + ")" +
+                    " FOREIGN KEY(" + S_ID + ") REFERENCES " + STUDENT_TABLE_NAME + "(" + S_ID + ")," +
+                    " FOREIGN KEY(" + C_ID + ") REFERENCES " + CLASS_TABLE_NAME + "(" + C_ID + ")" +
                     ");";
 
 
@@ -145,10 +147,11 @@ public class DbHelper extends SQLiteOpenHelper {
         return database.update(STUDENT_TABLE_NAME,values,S_ID+"=?",new String[]{String.valueOf(sid)});
     }
 
-    long addStatus(long sid,String date,String status){
+    long addStatus(long sid,long cid,String date,String status){
         SQLiteDatabase database=this.getWritableDatabase();
         ContentValues values=new ContentValues();
         values.put(S_ID,sid);
+        values.put(C_ID,cid);
         values.put(DATE_KEY,date);
         values.put(STATUS_KEY,status);
         return database.insert(STATUS_TABLE_NAME,null,values);
@@ -170,5 +173,11 @@ public class DbHelper extends SQLiteOpenHelper {
         if (cursor.moveToFirst())
             status=cursor.getString(cursor.getColumnIndex(STATUS_KEY));
         return status;
+    }
+
+    Cursor getDistinctMonths(long cid){
+        SQLiteDatabase database=this.getReadableDatabase();
+        return database.query(STATUS_TABLE_NAME,new String[]{DATE_KEY},C_ID+"="+cid,null,"substr("+DATE_KEY+",4,7)",null,null);
+
     }
 }
