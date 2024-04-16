@@ -1,7 +1,16 @@
 package com.example.studentattdencemanagementsystem;
 
 public class ClassItem {
-   private String className;
+
+    private long cid;
+
+    public ClassItem(long cid, String className, String subjectName) {
+        this.cid = cid;
+        this.className = className;
+        this.subjectName = subjectName;
+    }
+
+    private String className;
     private String subjectName;
 
     public String getClassName() {
@@ -25,4 +34,11 @@ public class ClassItem {
         this.subjectName = subjectName;
     }
 
+    public long getCid() {
+        return cid;
+    }
+
+    public void setCid(int cid) {
+        this.cid = cid;
+    }
 }
