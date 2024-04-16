@@ -32,7 +32,7 @@ public class MyDialog extends DialogFragment {
     }
 
     public MyDialog() {
-        
+
     }
 
     public interface OnClickListener{
