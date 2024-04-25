@@ -75,9 +75,9 @@ public class SheetActivity extends AppCompatActivity {
             rows[i] = new TableRow(this);
 
             if (i % 2 == 0)
-                rows[i].setBackgroundColor(Color.parseColor("#EEEEEE"));
+                rows[i].setBackgroundColor(Color.parseColor("#424949"));
             else
-                rows[i].setBackgroundColor(Color.parseColor("#E4E4E4"));
+                rows[i].setBackgroundColor(Color.parseColor("#808B96"));
 
             roll_tvs[i].setPadding(16, 16, 16, 16);
             name_tvs[i].setPadding(16, 16, 16, 16);
